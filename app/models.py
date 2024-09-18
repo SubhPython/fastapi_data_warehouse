@@ -1,17 +1,14 @@
-from sqlalchemy import Column, Integer, String, JSON
+from sqlalchemy import Column, Integer, String
 from app.database import Base
 
 class Customer(Base):
-    __tablename__ = 'customers'
-    
+    __tablename__ = "customers"
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, index=True)
-    email = Column(String, index=True)
-    data = Column(JSON)
+    name = Column(String)
+    email = Column(String)
 
 class Campaign(Base):
-    __tablename__ = 'campaigns'
-    
+    __tablename__ = "campaigns"
     id = Column(Integer, primary_key=True, index=True)
-    title = Column(String, index=True)
-    data = Column(JSON)
+    title = Column(String)
+    status = Column(String)

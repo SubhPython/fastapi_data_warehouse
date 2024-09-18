@@ -1,12 +1,10 @@
 from fastapi import FastAPI
-from app.api import sync, webhook, tasks
+from app.api import endpoints
 
-app = FastAPI()
+app = FastAPI(title="FastAPI Data Warehouse", version="1.0.0")
 
-app.include_router(sync.router)
-app.include_router(webhook.router)
-app.include_router(tasks.router)
+app.include_router(endpoints.router)
 
 @app.get("/")
 async def root():
-    return {"message": "FastAPI Data Warehouse"}
+    return {"message": "Welcome to the FastAPI Data Warehouse!"}
